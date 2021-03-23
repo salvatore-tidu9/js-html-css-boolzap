@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Boolzap</title>
+</head>
+
+<body>
+
+    <div id="root" class="container">
+
+        <div id="left_box">
+
+            <div class="user_nav_container">
+
+                <div class="user_nav_info">
+
+                    <img src="img/avatar_io.jpg" alt="Avatar">
+
+                    <span class="user_name">Salvatore</span>
+
+                </div>
+
+                <div class="user_nav_icons">
+
+                    <i class="fas fa-circle-notch"></i>
+
+                    <i class="fas fa-comment-alt"></i>
+
+                    <i class="fas fa-ellipsis-v"></i>
+
+                </div>
+
+            </div>
+
+            <div class="notifications_box">
+
+                <div class="bell_icon_box">
+
+                    <i class="fas fa-bell-slash"></i>
+
+                </div>
+
+                <div class="notifications_info_text">
+
+                    <div class="strong_text">Ricevi notifiche di nuovi messaggi</div>
+
+                    <a href="#">Attiva le notifiche desktop</a>
+
+                </div>
+
+            </div>
+
+            <div class="chat_search">
+
+                <div class="search_icon">
+
+                    <i class="fas fa-search"></i>
+
+                </div>
+
+                <input type="text" placeholder="Cerca o inizia una nuova chat">
+
+            </div>
+
+            <div class="contact_list">
+
+                <div v-for="(contact, index) in contacts" class="contact_box">
+
+                    <div class="contact">
+
+                        <img :src="path + contact.avatar" alt="Avatar">
+
+                        <div class="contact_chat_info_text">
+
+                            <div class="contact_name">
+
+                                {{contact.name}}
+
+                            </div>
+
+                            <div class="chat_message">
+
+                                Prova messaggio
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="message_info_details">
+
+                        <div class="item_details">
+
+                            provaprovaprovaprova
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="right_box">
+
+            <div class="contact_chat_nav_container">
+
+                <div class="contact_chat_nav">
+
+                    <img src="img/avatar_1.jpg" alt="Avatar">
+
+                    <div class="contact_chat_info">
+
+                        <div class="contact_name">
+
+                            Michele
+
+                        </div>
+
+                        <div class="contact_chat_info_details">
+
+                            Ultimo accesso oggi alle
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="contact_chat_nav_icons">
+
+                    <i class="fas fa-search"></i>
+
+                    <i class="fas fa-paperclip"></i>
+
+                    <i class="fas fa-ellipsis-v"></i>
+
+                </div>
+
+            </div>
+
+            <div class="chat_text_area">
+
+                <div class="message_sent">
+
+                    Hai portato a spasso il cane ?
+
+                    <div class="message_info_details_chat_area">
+
+                        10/01/2020 15:30:55
+
+                    </div>
+
+                </div>
+
+                <div class="message_sent">
+
+                    Ricordati di dargli da mangiare
+
+                    <div class="message_info_details_chat_area">
+
+                        10/01/2020 15:50:00
+
+                    </div>
+
+                </div>
+
+                <div class="message_received">
+
+                    Tutto fatto !
+
+                    <div class="message_info_details_chat_area">
+
+                        10/01/2020 16:15:22
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="input_chat_text_section">
+
+                <i class="far fa-smile"></i>
+
+                <input type="text" placeholder="Scrivi un messaggio">
+
+                <i class="fas fa-microphone"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <script src="js/script.js"></script>
+    
+</body>
+
+</html>
