@@ -25,7 +25,7 @@
 
                 <div class="user_nav_info">
 
-                    <img src="img/avatar_io.jpg" alt="Avatar">
+                    <img :src="path + user.avatar" :alt="user.name">
 
                     <span class="user_name">Salvatore</span>
 
@@ -75,11 +75,12 @@
 
             <div class="contact_list">
 
-                <div v-for="(contact, index) in contacts" class="contact_box">
+                <div v-for="(contact, index) in contacts" class="contact_box" @click="changeActiveContact(index)"
+                :class="index == active_contact ? 'active' : null">
 
                     <div class="contact">
 
-                        <img :src="path + contact.avatar" alt="Avatar">
+                        <img :src="path + contact.avatar" :alt="contact.name">
 
                         <div class="contact_chat_info_text">
 
@@ -89,9 +90,9 @@
 
                             </div>
 
-                            <div class="chat_message">
+                            <div class="chat_last_message">
 
-                                Prova messaggio
+                                Ultimo messaggio
 
                             </div>
 
@@ -103,7 +104,7 @@
 
                         <div class="item_details">
 
-                            provaprovaprovaprova
+                            Data messaggio
 
                         </div>
 
@@ -115,25 +116,25 @@
 
         </div>
 
-        <div class="right_box">
+        <div id="right_box">
 
             <div class="contact_chat_nav_container">
 
                 <div class="contact_chat_nav">
 
-                    <img src="img/avatar_1.jpg" alt="Avatar">
+                    <img :src="path + contacts[active_contact].avatar" alt="Avatar">
 
                     <div class="contact_chat_info">
 
                         <div class="contact_name">
 
-                            Michele
+                            {{contacts[active_contact].name}}
 
                         </div>
 
                         <div class="contact_chat_info_details">
 
-                            Ultimo accesso oggi alle
+                            Ultimo accesso oggi alle 15:00
 
                         </div>
 
@@ -155,49 +156,25 @@
 
             <div class="chat_text_area">
 
-                <div class="message_sent">
+                <div :class="(message.status == 'sent') ? 'message_sent' : 'message_received'" v-for="message in contacts[active_contact].messages">
 
-                    Hai portato a spasso il cane ?
+                    {{message.text}}
 
                     <div class="message_info_details_chat_area">
 
-                        10/01/2020 15:30:55
+                        {{message.date}}
 
                     </div>
 
                 </div>
-
-                <div class="message_sent">
-
-                    Ricordati di dargli da mangiare
-
-                    <div class="message_info_details_chat_area">
-
-                        10/01/2020 15:50:00
-
-                    </div>
-
-                </div>
-
-                <div class="message_received">
-
-                    Tutto fatto !
-
-                    <div class="message_info_details_chat_area">
-
-                        10/01/2020 16:15:22
-
-                    </div>
-
-                </div>
-
+                
             </div>
 
             <div class="input_chat_text_section">
 
                 <i class="far fa-smile"></i>
 
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input v-model="userMessage" @keyup.enter="sendMessage" type="text" placeholder="Scrivi un messaggio">
 
                 <i class="fas fa-microphone"></i>
 

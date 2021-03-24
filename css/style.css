@@ -11,21 +11,26 @@ body {
     align-items: center;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(180deg, #019789 0%,#019789 15%, #d9dbd5 15%, #d9dbd5 100%);
+    background: linear-gradient(180deg, #019789 0px,#019789 15vh, #d9dbd5 15vh, #d9dbd5 100vh);
     background-repeat: no-repeat;
     font-family: 'Lato', sans-serif; 
 }
 
 .container {
+    margin: auto;
     display: flex;
     width: 80%;
+    min-width: 950px;
     height: 95%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
 }
 
 #left_box {
     width: 30%;
-    min-width: 450px;
+    min-width: 350px;
     height: 100%;
+    border-right: 1px solid #d1cfcf;
 }
 
 .user_nav_container {
@@ -54,6 +59,7 @@ body {
 .user_name  {
     font-size: 15px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .user_nav_icons {
@@ -62,7 +68,8 @@ body {
 }
 
 .user_nav_icons i {
-    margin-left: 10px;
+    margin-left: 20px;
+    font-size: 18px;
     cursor: pointer;
 }
 
@@ -92,12 +99,13 @@ body {
 }
 
 .strong_text {
+    font-size: 14px;
     font-weight: bold;
 }
 
 .notifications_info_text a {
     color: grey;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .chat_search {
@@ -141,12 +149,21 @@ body {
 }
 
 .contact_box {
+    position: relative;
     display: flex;
     justify-content: space-between;
     height: 80px;
     padding: 10px 10px 10px 20px;
     border-bottom: 1px solid #e5e5e5;
     cursor: pointer;
+}
+
+.contact_box:hover {
+    background-color: rgb(252, 246, 246);
+}
+
+.contact_box.active {
+    background-color: lightgrey;
 }
 
 .contact {
@@ -166,9 +183,10 @@ body {
 
 .contact_name {
     font-weight: bold;
+    cursor: pointer;
 }
 
-.chat_message {
+.chat_last_message {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -182,12 +200,13 @@ body {
 
 .item_details {
     position: absolute;
+    right: 0;
     padding-right: 10px;
     font-size: 12px;
     color: grey;
 }
 
-.right_box {
+#right_box {
     width: 70%;
     height: 100%;
 }
@@ -212,6 +231,7 @@ body {
     height: 100%;
     margin-right: 10px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .contact_chat_info_details {
@@ -220,8 +240,8 @@ body {
 }
 
 .contact_chat_nav_icons i {
-    margin-left: 10px;
-    font-size: 20px;
+    margin-left: 20px;
+    font-size: 18px;
     cursor: pointer;
     color: #b1b1b1;
 }
@@ -230,11 +250,9 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: calc(100% - 150px);
+    height: calc(100% - 135px);
     padding: 50px 70px;
     background-image: url("../img/mine.jpg");
-    background-position: center;
-    background-size: cover;
     overflow-y: scroll;
 }
 
@@ -275,8 +293,11 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 80px;
-    padding: 10px 30px;
+    height: 65px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 30px;
     background-color: #e9e8e8;
     border-left: 1px solid lightgrey;
 }
@@ -284,15 +305,31 @@ body {
 .input_chat_text_section i {
     font-size: 25px;
     cursor: pointer;
-    color: grey;
+    color: #b1b1b1;
 }
 
 .input_chat_text_section input {
-    width: 100%;
-    height: 100%;
-    margin: 0 40px;
+    width: 95%;
+    height: 90%;
+    margin: 0 30px;
     padding: 10px;
     border: 1px solid rgb(250, 245, 245);
     border-radius: 5px;
     background-color: white;
 }
+
+i:hover {
+    color: grey;
+}
+
+
+
+
+@media screen and (max-width: 1441px) {
+    html {
+        min-width: 950px;
+    }
+}
+
+
+
