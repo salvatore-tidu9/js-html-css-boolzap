@@ -12,6 +12,8 @@ var app = new Vue({
 
         userMessage: "",
 
+        searchName: "",
+
         user: {
 
             name: "Salvatore",
@@ -117,6 +119,86 @@ var app = new Vue({
                     }
                 ]
             },
+
+            {
+                name: 'Francesco',
+                avatar: 'avatar_4.jpg',
+                visible: true,
+                messages: [
+
+                    {
+                        date: '10/01/2020 11:30:50',
+                        text: 'Come stai ?',
+                        status: 'sent'
+                    },
+
+                    {
+                        date: '10/01/2020 11:22:00',
+                        text: 'Tutto bene grazie ! Tu come stai ?',
+                        status: 'received'
+                    }
+                ]
+            },
+
+            {
+                name: 'Marco',
+                avatar: 'avatar_5.jpg',
+                visible: true,
+                messages: [
+
+                    {
+                        date: '10/01/2020 16:35:55',
+                        text: 'Come è andato il colloquio ?',
+                        status: 'received'
+                    },
+
+                    {
+                        date: '10/01/2020 16:45:00',
+                        text: 'Credo sia andato bene !',
+                        status: 'sent'
+                    }
+                ]
+            },
+
+            {
+                name: 'Sara',
+                avatar: 'avatar_6.jpg',
+                visible: true,
+                messages: [
+
+                    {
+                        date: '10/01/2020 10:32:55',
+                        text: 'Appena puoi mi passi una copia del documento ?',
+                        status: 'sent'
+                    },
+
+                    {
+                        date: '10/01/2020 10:54:20',
+                        text: 'Certo !',
+                        status: 'received'
+                    }
+                ]
+            },
+
+            {
+                name: 'Simone',
+                avatar: 'avatar_7.jpg',
+                visible: true,
+                messages: [
+
+                    {
+                        date: '10/01/2020 20:32:55',
+                        text: 'Pronto per la partita ?',
+                        status: 'sent'
+                    },
+
+                    {
+                        date: '10/01/2020 20:34:20',
+                        text: 'Prontissimo !',
+                        status: 'received'
+                    }
+                ]
+            },
         ]
     },
 
@@ -129,18 +211,69 @@ var app = new Vue({
 
         sendMessage() {
 
-            let newUserMessage = {
+            if (this.userMessage.length != "") {
 
-                date: "24/03/2021 17:53:22",
-                text: this.userMessage,
-                status: "sent"
-            };
+                let newUserMessage = {
 
-            this.contacts[this.active_contact].messages.push(newUserMessage);
+                    date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                    text: this.userMessage,
+                    status: "sent"
+                };
+    
+                let activeChat = this.contacts[this.active_contact].messages;
+    
+                activeChat.push(newUserMessage);
+    
+                this.userMessage = "";
+    
+                setTimeout(function() {
+    
+                    let computerAnswer = {
+    
+                        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                        text: "Ok",
+                        status: "received"
+                    };
+    
+                    activeChat.push(computerAnswer);
+    
+                }, 1000);
+    
+                this.scrollToEnd();
+            }
 
-            this.userMessage = "";
+        },
+
+        scrollToEnd() {    	
+
+            let chatArea = this.$el.querySelector(".chat_text_area");
+
+            chatArea.scrollTop = chatArea.scrollHeight;
+
+        },
+
+        searchContact() {
+
+            this.contacts.forEach((contact) => {
+
+                let contactName = contact.name.toLowerCase();
+
+                let searchedName = this.searchName.toLowerCase();
+
+                if (contactName.includes(searchedName)) {
+
+                    contact.visible = true;
+                }
+
+                else {
+
+                    contact.visible = false;
+                }
+
+            });
         }
-    },
+
+    }
 
 });
 

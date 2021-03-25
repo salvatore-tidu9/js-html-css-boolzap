@@ -11,6 +11,7 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Boolzap</title>
 </head>
@@ -69,13 +70,13 @@
 
                 </div>
 
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" @keyup="searchContact" v-model="searchName">
 
             </div>
 
             <div class="contact_list">
 
-                <div v-for="(contact, index) in contacts" class="contact_box" @click="changeActiveContact(index)"
+                <div v-for="(contact, index) in contacts" class="contact_box"  @click="changeActiveContact(index)" v-if="contact.visible"
                 :class="index == active_contact ? 'active' : null">
 
                     <div class="contact">
@@ -92,7 +93,7 @@
 
                             <div class="chat_last_message">
 
-                                Ultimo messaggio
+                                {{contact.messages.slice(-1)[0].text}}
 
                             </div>
 
@@ -104,7 +105,7 @@
 
                         <div class="item_details">
 
-                            Data messaggio
+                            {{contact.messages.slice(-1)[0].date}}
 
                         </div>
 
@@ -134,7 +135,7 @@
 
                         <div class="contact_chat_info_details">
 
-                            Ultimo accesso oggi alle 15:00
+                            Ultimo accesso {{this.contacts[this.active_contact].messages.slice(-1)[0].date}}
 
                         </div>
 
@@ -156,9 +157,9 @@
 
             <div class="chat_text_area">
 
-                <div :class="(message.status == 'sent') ? 'message_sent' : 'message_received'" v-for="message in contacts[active_contact].messages">
+                <div :class="(message.status == 'sent') ? 'message_sent' : 'message_received'" v-for="message in contacts[active_contact].messages" class="message">
 
-                    {{message.text}}
+                    <span>{{message.text}}</span>
 
                     <div class="message_info_details_chat_area">
 

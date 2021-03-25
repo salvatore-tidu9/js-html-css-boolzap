@@ -11,13 +11,12 @@ body {
     align-items: center;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(180deg, #019789 0px,#019789 15vh, #d9dbd5 15vh, #d9dbd5 100vh);
+    background: linear-gradient(to bottom, rgb(4,78,78) 0px,rgb(4,78,78) 15vh, rgb(35,38,39) 15vh, rgb(35,38,39) 100vh);
     background-repeat: no-repeat;
     font-family: 'Lato', sans-serif; 
 }
 
 .container {
-    margin: auto;
     display: flex;
     width: 80%;
     min-width: 950px;
@@ -30,7 +29,7 @@ body {
     width: 30%;
     min-width: 350px;
     height: 100%;
-    border-right: 1px solid #d1cfcf;
+    border-right: 1px solid #585858;
 }
 
 .user_nav_container {
@@ -40,7 +39,7 @@ body {
     width: 100%;
     height: 70px;
     padding: 10px 20px 10px 10px;
-    background-color: #e9e8e8;
+    background-color: rgb(35,38,39);
 }
 
 .user_nav_info {
@@ -60,6 +59,7 @@ body {
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
+    color: lightgray;
 }
 
 .user_nav_icons {
@@ -79,7 +79,7 @@ body {
     width: 100%;
     height: 90px;
     padding: 15px;
-    background-color: #7dd7fd;
+    background-color: rgb(6,66,92);
 }
 
 .bell_icon_box {
@@ -89,8 +89,8 @@ body {
     line-height: 60px;
     text-align: center;
     font-size: 22px;
-    color: #7dd7fd;
-    background-color: #fff;
+    color: rgb(6,66,92);
+    background-color: rgb(144,179,191);
     border-radius: 50%;
 }
 
@@ -101,6 +101,7 @@ body {
 .strong_text {
     font-size: 14px;
     font-weight: bold;
+    color: lightgray;
 }
 
 .notifications_info_text a {
@@ -112,7 +113,7 @@ body {
     display: flex;
     width: 100%;
     padding: 10px;
-    background-color: #f8f7f7;
+    background-color: rgb(15,22,26);
 }
 
 .search_icon {
@@ -120,10 +121,10 @@ body {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    border: 1px solid #e5e5e5;
+    border: 1px solid rgb(40,44,45);
     border-right: 0;
-    border-radius: 5px 0 0 5px;
-    background-color: white;
+    border-radius: 15px 0 0 15px;
+    background-color: rgb(40,44,45);
 }
 
 .search_icon i {
@@ -136,15 +137,16 @@ body {
     height: 35px;
     padding: 10px;
     font-weight: bold;
-    background-color: white;
-    border: 1px solid #e5e5e5;
-    border-radius: 0 5px 5px 0;
+    background-color: rgb(40,44,45);
+    border: 1px solid rgb(40,44,45);
+    border-radius: 0 15px 15px 0;
+    color: lightgray;
 }
 
 .contact_list {
     width: 100%;
     height: calc(100% - 215px);
-    background-color: #fff;
+    background-color: rgb(15,22,26);
     overflow-y: scroll;
 }
 
@@ -154,16 +156,17 @@ body {
     justify-content: space-between;
     height: 80px;
     padding: 10px 10px 10px 20px;
-    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #585858;
+    border-bottom: 1px solid #585858;
     cursor: pointer;
 }
 
 .contact_box:hover {
-    background-color: rgb(252, 246, 246);
+    background-color:  rgb(40,44,45);
 }
 
 .contact_box.active {
-    background-color: lightgrey;
+    background-color: rgb(40,44,45);
 }
 
 .contact {
@@ -184,6 +187,7 @@ body {
 .contact_name {
     font-weight: bold;
     cursor: pointer;
+    color: lightgray;
 }
 
 .chat_last_message {
@@ -218,8 +222,8 @@ body {
     width: 100%;
     height: 70px;
     padding: 10px 20px 10px 10px;
-    background-color: #e9e8e8;
-    border-left: 1px solid lightgrey;
+    background-color: rgb(35,38,39);
+    border-left: 1px solid #414040;
 }
 
 .contact_chat_nav {
@@ -252,7 +256,8 @@ body {
     width: 100%;
     height: calc(100% - 135px);
     padding: 50px 70px;
-    background-image: url("../img/mine.jpg");
+    background-image: url("../img/mine_dark.jpg");
+    background-size: contain;
     overflow-y: scroll;
 }
 
@@ -265,12 +270,12 @@ body {
     border-radius: 10px;
     font-size: 200;
     overflow-wrap: break-word;
-    background-color: #d0ffad;
+    background-color: rgb(4,78,78);
 }
 
 .message_info_details_chat_area {
     position: absolute;
-    right: 5px;
+    right: 0;
     bottom: 5px;
     width: 100px;
     font-size: 10px;
@@ -285,7 +290,11 @@ body {
     border-radius: 10px;
     font-size: 200;
     overflow-wrap: break-word;
-    background-color: white;
+    background-color: rgb(30,36,39);
+}
+
+.message span {
+    color: lightgray;
 }
 
 .input_chat_text_section {
@@ -298,8 +307,8 @@ body {
     padding-bottom: 10px;
     padding-left: 25px;
     padding-right: 30px;
-    background-color: #e9e8e8;
-    border-left: 1px solid lightgrey;
+    background-color: rgb(24,29,32);
+    border-left: 1px solid #585858;
 }
 
 .input_chat_text_section i {
@@ -313,9 +322,10 @@ body {
     height: 90%;
     margin: 0 30px;
     padding: 10px;
-    border: 1px solid rgb(250, 245, 245);
-    border-radius: 5px;
-    background-color: white;
+    border: 1px solid rgb(40,44,45);
+    border-radius: 20px;
+    background-color: rgb(40,44,45);
+    color: lightgray;
 }
 
 i:hover {
