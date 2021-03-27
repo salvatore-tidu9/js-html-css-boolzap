@@ -163,7 +163,7 @@
 
             <div class="chat_text_area">
 
-                <div :class="(message.status == 'sent') ? 'message_sent' : 'message_received'" v-for="(message, index) in contacts[active_contact].messages" class="message">
+                <div :class="(message.status == 'sent') ? 'message_sent' : 'message_received'" v-for="(message, index) in contacts[active_contact].messages" class="message" @mouseleave="activeControlPanel= -1">
 
                     <span>{{message.text}}</span>
 
