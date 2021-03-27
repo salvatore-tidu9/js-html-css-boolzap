@@ -69,7 +69,7 @@ body {
 
 .user_nav_icons i {
     margin-left: 20px;
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -245,7 +245,7 @@ body {
 
 .contact_chat_nav_icons i {
     margin-left: 20px;
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
     color: #b1b1b1;
 }
@@ -297,6 +297,49 @@ body {
     color: lightgray;
 }
 
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    color: lightgray;
+}
+
+.message:hover .dropdown {
+    display: block;
+}
+
+.control_panel_message {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 5px;
+    z-index: 2;
+    width: 200px;
+    /* height: 100px; */
+    border-radius: 4px;
+    background-color: rgb(40, 43, 44);
+}
+
+.control_panel_message.active {
+    display: block;
+}
+
+.control_panel_message div {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    font-size: 14px;
+    color: lightgray;
+    cursor: pointer;
+}
+
+.control_panel_message div:hover {
+    background-color: rgb(110, 110, 110);
+}
+
 .input_chat_text_section {
     display: flex;
     justify-content: space-between;
@@ -312,14 +355,14 @@ body {
 }
 
 .input_chat_text_section i {
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
     color: #b1b1b1;
 }
 
 .input_chat_text_section input {
     width: 95%;
-    height: 90%;
+    height: 80%;
     margin: 0 30px;
     padding: 10px;
     border: 1px solid rgb(40,44,45);

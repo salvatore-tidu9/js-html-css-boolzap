@@ -133,9 +133,15 @@
 
                         </div>
 
+                        <!-- <div class="contact_chat_info_details" v-if="activeContactWriting">
+
+                            {{contacts[active_contact].name}} sta scrivendo...
+
+                        </div> -->
+
                         <div class="contact_chat_info_details">
 
-                            Ultimo accesso {{this.contacts[this.active_contact].messages.slice(-1)[0].date}}
+                            Ultimo accesso il {{this.contacts[this.active_contact].messages.slice(-1)[0].date}}
 
                         </div>
 
@@ -157,7 +163,7 @@
 
             <div class="chat_text_area">
 
-                <div :class="(message.status == 'sent') ? 'message_sent' : 'message_received'" v-for="message in contacts[active_contact].messages" class="message">
+                <div :class="(message.status == 'sent') ? 'message_sent' : 'message_received'" v-for="(message, index) in contacts[active_contact].messages" class="message">
 
                     <span>{{message.text}}</span>
 
@@ -167,15 +173,25 @@
 
                     </div>
 
+                    <i class="dropdown fa fa-chevron-down f-right message-options" @click="showControlPanel(index)"></i>
+
+                    <div class="control_panel_message" :class="index == activeControlPanel ? 'active' : null" @mouseleave="activeControlPanel= -1">
+
+                        <div class="message_info">Message Info</div>
+    
+                        <div class="delete_message" @click="deleteMessage(index)">Delete Message</div>
+    
+                    </div>
+
                 </div>
-                
+
             </div>
 
             <div class="input_chat_text_section">
 
                 <i class="far fa-smile"></i>
 
-                <input v-model="userMessage" @keyup.enter="sendMessage" type="text" placeholder="Scrivi un messaggio">
+                <input v-model="userMessage" @keyup.enter="sendMessage" type="text" placeholder="Scrivi un messaggio" >
 
                 <i class="fas fa-microphone"></i>
 

@@ -14,6 +14,10 @@ var app = new Vue({
 
         searchName: "",
 
+        activeControlPanel: -1,
+
+        // activeContactWriting: false,
+
         user: {
 
             name: "Salvatore",
@@ -225,21 +229,31 @@ var app = new Vue({
                 activeChat.push(newUserMessage);
     
                 this.userMessage = "";
-    
-                setTimeout(function() {
-    
+
+
+                // setTimeout(() => {
+
+                //     this.activeContactWriting = true;
+
+                // }, 2000);
+
+                setTimeout(() => {
+
                     let computerAnswer = {
     
                         date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
                         text: "Ok",
                         status: "received"
                     };
-    
+
                     activeChat.push(computerAnswer);
-    
+
                 }, 1000);
-    
+
+                // this.activeContactWriting = false;
+
                 this.scrollToEnd();
+
             }
 
         },
@@ -271,6 +285,17 @@ var app = new Vue({
                 }
 
             });
+
+        },
+
+        showControlPanel(index) {
+
+            this.activeControlPanel = index;
+        },
+
+        deleteMessage(index) {
+
+            this.contacts[this.active_contact].messages.splice(index, 1);
         }
 
     }
